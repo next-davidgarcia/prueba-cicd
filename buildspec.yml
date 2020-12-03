@@ -33,8 +33,3 @@ phases:
   build:
     commands:
     - npm run build
-  post_build:
-    commands:
-    - echo Deploy started on `date`
-    - npm run deploy:$DEPLOY_ENV
-    - echo Build completed on `date`
