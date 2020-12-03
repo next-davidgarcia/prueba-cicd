@@ -7,3 +7,7 @@ test('test hello world', () => {
 test('test getSecret', () => {
     expect(getSecret('TEST_VAR')).toBe('Valid!');
 });
+
+test('test getSecret notfound', () => {
+    expect(getSecret('notfound')).toBe('Not found');
+});

@@ -11,7 +11,8 @@
     "jest-cli": "latest"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
+    "quality": "plato -r -d report src && node check-quality.js",
     "build": "node build"
   },
   "repository": {
@@ -19,7 +20,15 @@
     "url": "git+https://github.com/next-davidgarcia/prueba-cicd.git"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "author": "David García Carbayo"
 }
