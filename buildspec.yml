@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-#  parameter-store:
-#    PARAM: "/CodeBuild/PARAM"
+  parameter-store:
+    PARAM: "/CodeBuild/PARAM2"
   secrets-manager:
     SECRET: test-ninja:SECRET
 
@@ -21,7 +21,7 @@ phases:
     - cp -Rf src/public/* dist/
     - echo "PARAM="${PARAM} >> .env
     - echo "SECRET="${SECRET} >> .env
-    - echo "NODE_ENV="${$DEPLOY_ENV} >> .env
+    - echo "NODE_ENV="${DEPLOY_ENV} >> .env
   pre_build:
     commands:
     - echo Test starts
