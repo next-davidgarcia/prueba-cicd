@@ -1,0 +1,25 @@
+{
+  "name": "demo-cicd",
+  "version": "1.0.0",
+  "description": "Ninja Demo",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "dotenv": "^8.2.0",
+    "envify": "^4.1.0",
+    "jest": "latest",
+    "jest-cli": "latest"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "node build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/next-davidgarcia/prueba-cicd.git"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "author": "David García Carbayo"
+}

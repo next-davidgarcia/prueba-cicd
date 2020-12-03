@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  parameter-store:
+    PARAM: "PARAM"
+  secrets-manager:
+    SECRET: test-ninja:SECRET
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+    - echo ///// $DEPLOY_ENV //////
+    - echo dependencies
+    - npm install -g browserify
+    - npm install
+    - mkdir dist
+    - cp -Rf src/public/* dist/
+    - echo "PARAM="${PARAM} >> .env
+    - echo "SECRET="${SECRET} >> .env
+    - echo "NODE_ENV="${$DEPLOY_ENV} >> .env
+  pre_build:
+    commands:
+    - echo Test starts
+    - npm run test
+    - echo Test ends
+  build:
+    commands:
+    - npm run build
+  post_build:
+    commands:
+    - echo Deploy started on `date`
+    - npm run deploy:$DEPLOY_ENV
+    - echo Build completed on `date`
