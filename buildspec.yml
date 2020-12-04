@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   parameter-store:
-    PARAM: "/CodeBuild/PARAM2"
+    PARAM: "/CodeBuild/PARAM3"
   secrets-manager:
     SECRET: test-ninja:SECRET
 
